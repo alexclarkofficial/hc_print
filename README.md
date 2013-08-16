@@ -1,1 +1,1 @@
-To transder HC excel files to individual, one page orders.
+To transfer HC excel files to individual, one page orders.

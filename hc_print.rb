@@ -1,14 +1,16 @@
+require 'rubygems'
 require 'sinatra'
 require 'erb'
-require 'csv'
 
 get '/' do
   erb :upload
 end
 
-post '/print' do
-  @arr_of_arrs = CSV.read("files/sample.csv").join(", ")
-  return @arr_of_arrs
+post "/" do 
+  File.open('/' + params['myfile'][:filename], "w") do |f|
+    f.write(params['myfile'][:tempfile].read)
+  end
+  return "The file was successfully uploaded!"
 end
 
 get '/print' do

@@ -1,10 +1,11 @@
 <html>
-<body>
-  <h1> Import CSV </h1>
-    <input type="file" accept=".csv" > <br> </br>
-  <form>
-    <action='/print'> 
-    <input type="submit" value="Send">
-  </form>
-</body>
+  <body>
+    <h1> Import CSV </h1>
+    <form>
+      <method="post", enctype='multipart/form-data'> 
+      <input type='file' name='myfile'>
+      <br>
+      <input type='submit' value='Upload!'>
+    </form>
+  </body>
 </html>
