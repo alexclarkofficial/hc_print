@@ -1,6 +1,6 @@
-require 'rubygems'
 require 'sinatra'
 require 'erb'
+require 'csv'
 
 get '/' do
   erb :upload
@@ -10,11 +10,17 @@ post "/" do
   File.open('files/' + params['myfile'][:filename], "w") do |f|
     f.write(params['myfile'][:tempfile].read)
   end
-  return "The file was successfully uploaded!"
 end
 
 get '/print' do
-  return @arr_of_arrs
+  @orders = {}
+
+  CSV.foreach("files/hc_sample.csv", :headers => true, :header_converters => :symbol, :converters => :all) do |row|
+  	@orders[row.fields[0]] = Hash[row.headers[1..-1].zip(row.fields[1..-1])]
+  end
+
+  erb :print
+
 end
 	
 not_found do

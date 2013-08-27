@@ -1,6 +1,18 @@
 <html>
 <body>
   <h1> This should be the csv data </h1>
-  <%= @arr_of_arrs %>
+  <% @orders.each do |x, y| %>
+    <% @orders[x].each do |key, value| %>
+      <% unless value == nil %>
+        <%= "#{key}" %>
+        <%= "      " %>
+        <%= "#{value}" %>
+        <br>
+      <% end %>
+    <% end %>
+    <br>
+    <br>
+    <br>
+  <% end %>
 </body>
 </html>
