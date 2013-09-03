@@ -7,15 +7,11 @@ get '/' do
 end
 
 post "/" do 
-  File.open('files/' + params['myfile'][:filename], "w") do |f|
-    f.write(params['myfile'][:tempfile].read)
-  end
-end
 
-get '/print' do
   @orders = {}
+  @n = 1
 
-  CSV.foreach("files/hc_sample.csv", :headers => true, :header_converters => :symbol, :converters => :all) do |row|
+  CSV.foreach(params['myfile'][:tempfile], :headers => true, :header_converters => :symbol, :converters => :all) do |row|
   	@orders[row.fields[0]] = Hash[row.headers[1..-1].zip(row.fields[1..-1])]
   end
 

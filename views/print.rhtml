@@ -1,17 +1,27 @@
 <html>
 <body>
-  <h1> This should be the csv data </h1>
   <% @orders.each do |x, y| %>
-    <% @orders[x].each do |key, value| %>
-      <% unless value == nil %>
-        <%= "#{key}" %>
-        <%= "      " %>
-        <%= "#{value}" %>
-        <br>
+    <div style="page-break-after: always">
+      <h1> HemoCue Order #
+        <%= @n %>
+        <% @n+= 1 %>
+      </h1>
+      <table border="1">
+      <% @orders[x].each do |key, value| %>
+        <% if value %>
+          <tr>
+          <td>
+            <%= "#{key.upcase}:" %>
+          </td>
+          <td>
+            <%= "#{value}" %>
+          </td>
+          </tr>
+          <br>
+        <% end %>
       <% end %>
-    <% end %>
-    <br>
-    <br>
+      </table>
+    </div>
     <br>
   <% end %>
 </body>
