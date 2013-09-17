@@ -1,4 +1,4 @@
-require 'CSV'
+require 'csv'
 require 'erb'
 class MyApp < Sinatra::Base
 
@@ -6,7 +6,7 @@ get '/' do
   erb :upload
 end
 
-post "/" do 
+post '/' do 
 
   @orders = {}
   @n = 1
