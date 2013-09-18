@@ -1,28 +1,30 @@
 <html>
 <body>
   <% @orders.each do |x, y| %>
-    <div style="page-break-after: always">
-      <h1> HemoCue Order #
+    <div style="page-break-after: always; font-family: Helvetica">
+      <h2> Order #
         <%= @n %>
         <% @n+= 1 %>
-      </h1>
-      <table border="1">
-      <% @orders[x].each do |key, value| %>
-        <% if value %>
-          <tr>
-          <td>
-            <%= "#{key.upcase}:" %>
-          </td>
-          <td>
-            <%= "#{value}" %>
-          </td>
-          </tr>
-          <br>
+      </h2>
+      <p>HemoCue America<br/>
+      250 South Kraemer Blvd.<br/>
+      Mailstop: B1.SW.11<br/>
+      Brea, CA 92821</p>
+      <table style="border:1px solid black; border-collapse:collapse;">
+        <% @orders[x].each do |key, value| %>
+          <% unless value.to_s.empty? %>
+            <tr style="border:1px solid black; border-collapse:collapse;">
+              <td style="border:1px solid black; border-collapse:collapse;">
+                <%= "#{key.upcase}:" %>
+              </td>
+              <td style="border:1px solid black; border-collapse:collapse;">
+                <%= "#{value}" %>
+              </td>
+            </tr>
+          <% end %>
         <% end %>
-      <% end %>
       </table>
     </div>
-    <br>
   <% end %>
 </body>
 </html>
