@@ -12,7 +12,7 @@
       Brea, CA 92821</p>
       <table style="border:1px solid black; border-collapse:collapse;">
         <% @orders[x].each do |key, value| %>
-          <% unless value.to_s.empty? %>
+          <% unless value.blank? %>
             <tr style="border:1px solid black; border-collapse:collapse;">
               <td style="border:1px solid black; border-collapse:collapse;">
                 <%= "#{key.upcase}:" %>
