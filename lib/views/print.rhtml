@@ -1,6 +1,6 @@
 <html>
 <body>
-  <% @orders.each do |x, y| %>
+  <% @orders.each do |x| %>
     <div style="page-break-after: always; font-family: Helvetica">
       <h2> Order #
         <%= @n %>
@@ -11,11 +11,11 @@
       Mailstop: B1.SW.11<br/>
       Brea, CA 92821</p>
       <table style="border:1px solid black; border-collapse:collapse;">
-        <% @orders[x].each do |key, value| %>
+        <% x.each do |key, value| %>
           <% unless value.blank? %>
             <tr style="border:1px solid black; border-collapse:collapse;">
               <td style="border:1px solid black; border-collapse:collapse;">
-                <%= "#{key.upcase}:" %>
+                <%= "#{key.to_s}:" %>
               </td>
               <td style="border:1px solid black; border-collapse:collapse;">
                 <%= "#{value}" %>
